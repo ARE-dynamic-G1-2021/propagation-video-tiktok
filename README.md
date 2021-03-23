@@ -44,10 +44,10 @@ Grâce a l'article de TikTok sur le fonctionnement de son algorithme, nous avons
 
 Vu qu'on veut s'axer sur le point de vue de la propagation d'une vidéo vers des utilisateurs (content-based) et non pas des utilisateurs vers la vidéo (collaborative filtering), on s'est décidé de faire une simulation d'un système de recommandation basé sur le "content-based filtering". 
 
-On prenda alors en paramètre pour les utilisateurs :
+On prendra alors en paramètre pour les utilisateurs :
 
 - les vidéos likées
-- les videos partagées
+- les vidéos partagées
 - les comptes suivis
 - les commentaires postés
 
