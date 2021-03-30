@@ -1,37 +1,85 @@
-## Welcome to GitHub Pages
+# Propagation d'une vidéo sur TikTok (Spread of a video on TikTok)
 
-You can use the [editor on GitHub](https://github.com/ARE-dynamic-G1-2021/propagation-video-tiktok/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+## Introduction
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Avec la prolifération des réseaux sociaux, particulièrement dans le contexte de la crise sanitaire du COVID-19, il nous semble pertinent de traiter comment les plateformes s'adaptent à notre psychologie. Pour nous proposer des contenus qui nous intéressent, mais surtout pour nous inciter à rester le plus longtemps possible sur la plateforme comme source de revenus.
 
-### Markdown
+C'est pour ceci qu'on souhaite créer une modélisation de TikTok qui nous permettra d'étudier comment une vidéo se "propage" vers les utilisateurs de la plateforme. Cela dans le but de pouvoir illustrer la propagation d'une vidéo en particulier, et éventuellement les paramètres qui ont mené à son succès.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+With the rapid spread of social media, particularly during the COVID-19 pandemic, it seems relevant to study how online platforms adapt themselves to our way of thinking, whether it's to recommend content or to encourage spending more time on their platform as a source of revenue.
 
-```markdown
-Syntax highlighted code block
+This is why we are attempting to create a model of TikTok that would allow us to observe how a video spreads towards the platform's users, the end goal being to illustrate the spread of an individual video, and possibly the parameters that led to its success.
 
-# Header 1
-## Header 2
-### Header 3
+## Blog
 
-- Bulleted
-- List
+### Semaine 1 (du 09/03)
 
-1. Numbered
-2. List
+Nous avons présenté notre projet pendant la séance de mardi. Nos rôles dans la présentation :
 
-**Bold** and _Italic_ and `Code` text
+- Salwa : Introduction
+- Manissa : Explication de notre choix
+- Adan : Comment nous allons procéder
+- Salwa : À quoi ressemblera le rendu final ?
+- Sebastian : Les résultats attendus
 
-[Link](url) and ![Image](src)
-```
+Nous avons ensuite défini plus explicitement notre approche au projet : on allait faire un système de recommandation, puis rajouter du code pour modéliser la propagation de notre vidéo.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Semaine 2 (du 15/03)
 
-### Jekyll Themes
+Débat sur la pertinence de l'approche choisi dans la dernière séance : 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ARE-dynamic-G1-2021/propagation-video-tiktok/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Nous avons découvert que notre méthode conçue précedemment de faire un système de recommandation pour ensuite rajouter du code pour modéliser était trop complexe. 
 
-### Support or Contact
+Nous avions trouvé trois bibliothèques Python qui pouvaient nous aider à atteindre notre but : pandas (Python Data Analysis Library), PySpark (une interface pour Apache Spark, un moteur d'analyse complexes de données à grande échelle), et Surprise (une bibliothèque conçue directement pour créer et analyser des systèmes de recommandation). 
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Ils présentaient tous le même défi : ils servent tous à analyser des ensembles de données gigantesques (non-disponible pour TikTok). On aurait dû changer notre projet à quelque-chose avec des ensembles disponibles, comme Netflix ou Spotify, mais le programme aurait été d'une complexité inabordable en un mois, inadapté alors à notre projet.
+
+C'est alors qu'on a décidé de nous réorienter vers un pseudo système de recommandation.
+
+Pour la prochaine séance, nous nous sommes laissés la tâche de finir notre débat et d'avoir une idée très claire des étapes de l'élaboration de notre pseudo système.
+
+### Semaine 3 (du 22/03)
+
+Grâce à l'article de TikTok sur le fonctionnement de son algorithme, nous avons pu discerner deux approches vers les systèmes de recommandation : le "content-based filtering" et le "collaborative filtering".
+
+Vu qu'on veut s'axer sur le point de vue de la propagation d'une vidéo vers des utilisateurs (content-based) et non pas des utilisateurs vers la vidéo (collaborative filtering), on s'est décidé de faire une simulation d'un système de recommandation basé sur le "content-based filtering". 
+
+On prendra alors en paramètre pour les utilisateurs :
+
+- les vidéos likées
+- les vidéos partagées
+- les comptes suivis
+- les commentaires postés
+
+Pour les vidéos, on prendra en compte :
+
+- les hashtags
+- l'audio sélectionné par le créateur
+
+Le code sera divisé en quatre fonctions principales :
+
+`base_videos` : crée et formatte une liste de tuples représentant chaque vidéo, comportant chacun les paramètres audio et hashtag, et un identifiant unique
+
+`base_utilisateurs` : crée une liste de listes représentant chaque utilisateur
+
+`tour_modele` : faire visionner une vidéo à chaque utilisateur et rajouter des intéractions à chacune -> comment les intéractions seront rajoutées à voir
+
+`modelisation` : montrer le séquencement du modèle avec matplotlib, tkinter, pygame ou autre
+
+### Semaine 4 (du 29/03)
+
+Nous avons rendu le carnet de bord sur Moodle pendant la semaine. Par la même occasion, nous avons pu commencer à faire des recherches à propos du projet.
+
+A propos des fonctions principales, nous avons attribué à chaque personne une fonction principale parmis les 4 que nous avons listées pendant la semaine précédente :
+- Adan : `base_videos`
+- Manissa : `base_utilisateur`
+- Sebastian : `tour_modele`
+- Salwa : `modelisation`
+
+Nous avons aussi un peu réfléchi sur le module que nous allons choisir pour illustrer la propagation. Nous avons décidé d’utiliser les modules `matplotlib` pour présenter les données chiffrées, `tkinter` pour créer des widgets et `pygame` pour faire des animations, mais cela dépend encore de l’avancement du projet.
+
+Nous avons cherché des tutoriels pour `tkinter` et `pygame` sur Youtube, ainsi que les documentations associées.
+
+Au niveau du code, nous avons terminé d’écrire la fonction `base_videos`. Nous avons également avancé pour la fonction `base_utilisateur`, mais il ne reste plus qu’à tester les fonctions pendant la séance en présentiel.
+
+La difficulté était au niveau de l’importation du module `pygame`, car bien qu’il soit déjà installé, le compilateur ne reconnaît pas le module `pygame`.
