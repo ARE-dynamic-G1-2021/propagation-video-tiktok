@@ -40,7 +40,7 @@ Pour la prochaine séance, nous nous sommes laissés la tâche de finir notre d�
 
 ### Semaine 3 (du 22/03)
 
-Grâce a l'article de TikTok sur le fonctionnement de son algorithme, nous avons pu discerner deux approches vers les systèmes de recommandation : le "content-based filtering" et le "collaborative filtering".
+Grâce à l'article de TikTok sur le fonctionnement de son algorithme, nous avons pu discerner deux approches vers les systèmes de recommandation : le "content-based filtering" et le "collaborative filtering".
 
 Vu qu'on veut s'axer sur le point de vue de la propagation d'une vidéo vers des utilisateurs (content-based) et non pas des utilisateurs vers la vidéo (collaborative filtering), on s'est décidé de faire une simulation d'un système de recommandation basé sur le "content-based filtering". 
 
@@ -65,3 +65,21 @@ Le code sera divisé en quatre fonctions principales :
 `tour_modele` : faire visionner une vidéo à chaque utilisateur et rajouter des intéractions à chacune -> comment les intéractions seront rajoutées à voir
 
 `modelisation` : montrer le séquencement du modèle avec matplotlib, tkinter, pygame ou autre
+
+### Semaine 4 (du 29/03)
+
+Nous avons rendu le carnet de bord sur Moodle pendant la semaine. Par la même occasion, nous avons pu commencer à faire des recherches à propos du projet.
+
+A propos des fonctions principales, nous avons attribué à chaque personne une fonction principale parmis les 4 que nous avons listées pendant la semaine précédente :
+- Adan : `base_videos`
+- Manissa : `base_utilisateur`
+- Sebastian : `tour_modele`
+- Salwa : `modelisation`
+
+Nous avons aussi un peu réfléchi sur le module que nous allons choisir pour illustrer la propagation. Nous avons décidé d’utiliser les modules `matplotlib` pour présenter les données chiffrées, `tkinter` pour créer des widgets et `pygame` pour faire des animations, mais cela dépend encore de l’avancement du projet.
+
+Nous avons cherché des tutoriels pour `tkinter` et `pygame` sur Youtube, ainsi que les documentations associées.
+
+Au niveau du code, nous avons terminé d’écrire la fonction `base_videos`. Nous avons également avancé pour la fonction `base_utilisateur`, mais il ne reste plus qu’à tester les fonctions pendant la séance en présentiel.
+
+La difficulté était au niveau de l’importation du module `pygame`, car bien qu’il soit déjà installé, le compilateur ne reconnaît pas le module `pygame`.
