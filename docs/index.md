@@ -83,3 +83,12 @@ Nous avons cherché des tutoriels pour `tkinter` et `pygame` sur Youtube, ainsi 
 Au niveau du code, nous avons terminé d’écrire la fonction `base_videos`. Nous avons également avancé pour la fonction `base_utilisateur`, mais il ne reste plus qu’à tester les fonctions pendant la séance en présentiel.
 
 La difficulté était au niveau de l’importation du module `pygame`, car bien qu’il soit déjà installé, le compilateur ne reconnaît pas le module `pygame`.
+
+
+### Semaine 5 (du 05/04)
+
+Cette semaine, nous avons fini 2 fonctions que sont `base_video` et `base_utilisateur`. La fonction `base_video` renvoie une liste de tuples de type (int, str ,str ,str ) contenant un identifiant unique à chaque vidéo, un thème, une musique et un hashtag. Ces différents paramètres sont générés grâce à une technique de webscrapping (module beautifufulsoup) .La fonction `base_utilisateur` permet à l’aide de la fonction `base_video` d’assigner 3 listes à un nombre d’utilisateurs entrée un paramètre : une liste de vidéos likées, une liste de vidéos commentées et une liste de vidéos partagées.
+
+Concernant la fonction `modelisation` nous avons déjà une idée et un schéma de la manière dont nous allons l’implémenter à l’aide du module Pygame. Nous savons également à peu près l’ensemble des paramètres que prendra en entrées cette fonction.
+
+Cette semaine sera en grande partie dédiée à l’implémentation de la fonction principale : `tour_modele` qui sera probablement elle-même découpée en sous fonctions.
