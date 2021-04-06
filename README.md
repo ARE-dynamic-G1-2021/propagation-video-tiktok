@@ -6,6 +6,6 @@ C'est pour ceci qu'on souhaite créer une modélisation de TikTok qui nous perme
 
 With the rapid spread of social media, particularly during the COVID-19 pandemic, it seems relevant to study how online platforms adapt themselves to our way of thinking, whether it's to recommend content or to encourage spending more time on their platform as a source of revenue.
 
-This is why we are attempting to create a model of TikTok that would allow us to observe how a video spreads towards the platform's users, the end goal being to illustrate the spread of an individual video, and possibly the parameters that led to its success.
+This is why we are attempting to create a model of TikTok that would allow us to observe how a video spreads towards the platform's users, the end goal being to illustrate the spread of an individual video, and possibly the parameters that led to its sucess.
 
 [Lien vers blog](https://are-dynamic-g1-2021.github.io/propagation-video-tiktok/)
