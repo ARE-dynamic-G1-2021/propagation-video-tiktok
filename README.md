@@ -9,3 +9,4 @@ With the rapid spread of social media, particularly during the COVID-19 pandemic
 This is why we are attempting to create a model of TikTok that would allow us to observe how a video spreads towards the platform's users, the end goal being to illustrate the spread of an individual video, and possibly the parameters that led to its sucess.
 
 [Lien vers blog](https://are-dynamic-g1-2021.github.io/propagation-video-tiktok/)
+[Lien vers nbviewer](https://nbviewer.jupyter.org/github/ARE-dynamic-G1-2021/propagation-video-tiktok/blob/main/propagation-video-tiktok.ipynb)
