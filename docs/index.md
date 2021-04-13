@@ -121,7 +121,7 @@ base_utilisateur :  crée une liste de Tuple de type :
 
 Ces paramètres seront générés aléatoirement.
 
-##### Les sous fonctions de tour_modele :
+#### Les sous fonctions de tour_modele :
 
 `interactions_video` : celle ci génère la liste des interactions (interaction video_utilisateur) c’est une liste qui a comme paramètres :
 - identifiant_utilisateur. 
@@ -133,7 +133,7 @@ Ces paramètres seront générés aléatoirement.
 
 `add_interaction` :  rajoute plus de vidéos selon les conditions définies par le modèle.
       
-##### Les points sur lesquels nous avons pensés :
+#### Les points sur lesquels nous avons pensés :
 
 --comment recommander ou faire visionner une vidéo tiktok ?  
 
@@ -148,14 +148,14 @@ Ces paramètres seront générés aléatoirement.
 - Proposition 1 : Celle-ci  s’arrête une fois qu’une autre vidéo «VIDEO_2» est plus virale «a plus d’interactions avec les utilisateurs »
 - Proposition 2 : Celle-ci s’arrête après X temps .
          
-##### En ce qui concerne l’animation :
+#### En ce qui concerne l’animation :
 
 on a beaucoup avancé cette semaine sur `pygame` et `tkinter` par rapport à la dernière fois :
 - on a pu placer des individus de manière aléatoire dans l’animation.
 - pour l’instant, l’animation est manuelle sur `pygame`. 
 - on a réalisé des fonctions qui permettent l’interaction entre la vidéo qu’on déplace manuellement et les individus.
 
-##### Ce nous devons faire :
+#### Ce nous devons faire :
 
 - importer les bases `base_utilisateur`, `base_video` dans `pygame` pour attribuer un élément de la base  à chaque personne.
 - Ajouter des commandes, des actions lorsqu’on valide les paramètres dans la fenêtre `tkinter`.
