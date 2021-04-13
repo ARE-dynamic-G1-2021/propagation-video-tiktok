@@ -104,6 +104,7 @@ Pendant qu’on réfléchissait aux sous fonctions, on s’est rendu compte qu�
 `Clarification :` 
 
 Avant :
+
 base_utilisateur : crée une liste de listes représentant chaque utilisateur, cette liste contient :
 - identifiant_utilisateur.
 - liked_videos : liste des vidéos likées.
@@ -111,6 +112,7 @@ base_utilisateur : crée une liste de listes représentant chaque utilisateur, c
 - shared_videos : listes des vidéos partagées. 
     
 Après :
+
 base_utilisateur :  crée une liste de Tuple de type :
 - identifiant.
 - liste musiques favoris.
