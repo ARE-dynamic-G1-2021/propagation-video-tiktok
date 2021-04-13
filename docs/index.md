@@ -101,13 +101,14 @@ La fonction `tour_modele`: consiste à faire visionner une vidéo à chaque util
 
 Pendant qu’on réfléchissait aux sous fonctions, on s’est rendu compte qu’on s’est éloigné de l’objectif de départ, du coup on a dû modifier la base utilisateur pour rendre la suite des fonctions plus raisonnable et efficace. 
 
-#Clarification : 
+`Clarification :` 
 Avant :
 base_utilisateur : crée une liste de listes représentant chaque utilisateur, cette liste contient :
     • identifiant_utilisateur.
     • liked_videos : liste des vidéos likées.
     • commented_videos : listes des vidéos commentées.
     • shared_videos : listes des vidéos partagées. 
+    
 Après :
 base_utilisateur :  crée une liste de Tuple de type :
     • identifiant .
@@ -127,7 +128,7 @@ Ces paramètres seront générés aléatoirement.
     • `gen_user_pref` : attribue des vidéos, thèmes préférés initialement.
     • `add_interaction` :  rajoute plus de vidéos selon les conditions définies par le modèle/
       
-#Les points sur lesquels nous avons pensés :
+Les points sur lesquels nous avons pensés :
    • comment recommander ou faire visionner une vidéo tiktok ?
         ◦ En se basant sur les caractéristiques de la vidéo, on les compare avec les paramètres de l’utilisateur (audios favoris, hashtags favoris, thèmes        favoris). Si une similarité a lieu, on attribue la vidéo à la liste des interactions correspondante, sinon pas d’attribution . 
       
@@ -138,13 +139,13 @@ Ces paramètres seront générés aléatoirement.
         ◦ Proposition 1 : Celle-ci  s’arrête une fois qu’une autre vidéo «VIDEO_2» est plus virale «a plus d’interactions avec les utilisateurs »
         ◦ Proposition 2 : Celle-ci s’arrête après X temps .
 
-#En ce qui concerne l’animation  :
+En ce qui concerne l’animation  :
 on a beaucoup avancé cette semaine sur pygame et tkinter par rapport à la dernière fois :
     • on a pu placer des individus de manière aléatoire dans l’animation.
     • pour l’instant, l’animation est manuelle sur pygame. 
     • on a réalisé des fonctions qui permettent l’interaction entre la vidéo qu’on déplace manuellement et les individus.
 
-#Ce nous devons faire : 
+Ce nous devons faire : 
     • importer les bases `base_utilisateur`, `base_video` dans pygame pour attribuer un élément de la base  à chaque personne.
     • Ajouter des commandes, des actions lorsqu’on valide les paramètres dans la fenêtre tkinter.
     • Distancer les personnes pour avoir un rendu plus réaliste .
