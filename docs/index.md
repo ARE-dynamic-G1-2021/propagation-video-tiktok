@@ -92,3 +92,60 @@ Cette semaine, nous avons fini 2 fonctions que sont `base_video` et `base_utilis
 Concernant la fonction `modelisation` nous avons déjà une idée et un schéma de la manière dont nous allons l’implémenter à l’aide du module Pygame. Nous savons également à peu près l’ensemble des paramètres que prendra en entrées cette fonction.
 
 Cette semaine sera en grande partie dédiée à l’implémentation de la fonction principale : `tour_modele` qui sera probablement elle-même découpée en sous fonctions.
+
+
+### semaine 6 (du 12/04)
+
+Pour cette semaine, on  a commencé par l’idée de définir la fonction `tour_modele`, et de la découper en sous fonctions.
+La fonction `tour_modele`: consiste à faire visionner une vidéo à chaque utilisateur et ajouter des interactions.
+
+Pendant qu’on réfléchissait aux sous fonctions, on s’est rendu compte qu’on s’est éloigné de l’objectif de départ, du coup on a dû modifier la base utilisateur pour rendre la suite des fonctions plus raisonnable et efficace. 
+
+#Clarification : 
+Avant :
+base_utilisateur : crée une liste de listes représentant chaque utilisateur, cette liste contient :
+    • identifiant_utilisateur.
+    • liked_videos : liste des vidéos likées.
+    • commented_videos : listes des vidéos commentées.
+    • shared_videos : listes des vidéos partagées. 
+Après :
+base_utilisateur :  crée une liste de Tuple de type :
+    • identifiant .
+    • liste musiques favoris.
+    • liste hashtags favoris.
+    • liste thèmes favoris.
+Ces paramètres seront générés aléatoirement.
+
+#Les sous fonctions de tour_modele :
+ `interactions_video` : celle ci génère la liste des interactions (interaction video_utilisateur) c’est une liste qui a comme paramètres :
+    • identifiant_utilisateur.
+    • liked_videos.
+    • commented_videos.
+    • shared_videos.
+    
+`add_interaction` : on a dû la diviser en 2 fonctions: 
+    • `gen_user_pref` : attribue des vidéos, thèmes préférés initialement.
+    • `add_interaction` :  rajoute plus de vidéos selon les conditions définies par le modèle/
+      
+#Les points sur lesquels nous avons pensés :
+   • comment recommander ou faire visionner une vidéo tiktok ?
+        ◦ En se basant sur les caractéristiques de la vidéo, on les compare avec les paramètres de l’utilisateur (audios favoris, hashtags favoris, thèmes        favoris). Si une similarité a lieu, on attribue la vidéo à la liste des interactions correspondante, sinon pas d’attribution . 
+      
+   • Les utilisateurs doivent-ils être dynamiques ?
+        ◦ oui, il faut qu’on mette à jour constamment les préférences de l’utilisateur (introduire de nouveaux thèmes, sons et hashtags) afin que la boucle soit finie au bout d’un moment) et que la fonction se rapproche de la réalité. 
+
+   • Quand est-ce que la propagation de la vidéo «VIDEO_1» s’arrête ?
+        ◦ Proposition 1 : Celle-ci  s’arrête une fois qu’une autre vidéo «VIDEO_2» est plus virale «a plus d’interactions avec les utilisateurs »
+        ◦ Proposition 2 : Celle-ci s’arrête après X temps .
+
+#En ce qui concerne l’animation  :
+on a beaucoup avancé cette semaine sur pygame et tkinter par rapport à la dernière fois :
+    • on a pu placer des individus de manière aléatoire dans l’animation.
+    • pour l’instant, l’animation est manuelle sur pygame. 
+    • on a réalisé des fonctions qui permettent l’interaction entre la vidéo qu’on déplace manuellement et les individus.
+
+#Ce nous devons faire : 
+    • importer les bases `base_utilisateur`, `base_video` dans pygame pour attribuer un élément de la base  à chaque personne.
+    • Ajouter des commandes, des actions lorsqu’on valide les paramètres dans la fenêtre tkinter.
+    • Distancer les personnes pour avoir un rendu plus réaliste .
+    • Ajouter un graphique avec tkinter (pas encore sûr).
