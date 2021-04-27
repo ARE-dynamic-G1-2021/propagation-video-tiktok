@@ -213,7 +213,7 @@ def animation_go():
             super().__init__()
             self.chargement_1 = "Chargement de l'Animation..."
             self.chargement_2 = "Récupération des données..."
-            self.titre = "P r o p a g a t i o n   o f   T i k T o k   v i d e o   a n i m a t e d"
+            self.titre = "Propagation of Tiktok video animated"
 
             self.instruction_1 = "Press SpaceBar to Start"
             self.instruction_2 = "Use Right, Left, Up and Down Arrows to Move"
@@ -228,8 +228,8 @@ def animation_go():
     class Police :
         def __init__(self):
             super().__init__()
-            self.arial = pygame.font.SysFont("arial", 30) # Police depuis le système
-            self.last_dream = pygame.font.Font("Polices/Last-Dream.ttf", 50) # Police téléchargée
+            self.arial = pygame.font.SysFont('arial', 30)
+            self.cookie_regular = pygame.font.Font('Polices/Cookie-Regular.ttf', 60)
 
     #-------------------------------------------------------------------------
 
@@ -239,8 +239,8 @@ def animation_go():
             self.chargement_1 = police.arial.render(texte.chargement_1, False, couleur.white)
             self.chargement_2 = police.arial.render(texte.chargement_2, False, couleur.white)
 
-            self.titre = police.last_dream.render(texte.titre, True, couleur.white)
-            self.titre_shadow = police.last_dream.render(texte.titre, True, couleur.black)
+            self.titre = police.cookie_regular.render(texte.titre, True, couleur.white)
+            self.titre_shadow = police.cookie_regular.render(texte.titre, True, couleur.black)
 
             self.instruction_1 = police.arial.render(texte.instruction_1, False, couleur.white)
             self.instruction_2 = police.arial.render(texte.instruction_2, False, couleur.white)
@@ -349,10 +349,6 @@ def animation_go():
     #========================================================
     #       B O U C L E    P R I N C I P A L E
     #========================================================
-
-    #----------------------------
-    # Maintenir la fenêtre ouverte
-    #----------------------------
     
     launched = True
 
@@ -556,7 +552,7 @@ def animation_go():
     """
     Crédits :
 
-        La police Last-dream a été téléchargée depuis ce site :
-        https://www.dafont.com/last-dream.font
+        La police Cookie-Regular a été téléchargée depuis ce site :
+        https://fonts.google.com/specimen/Cookie#standard-styles
 
     """
