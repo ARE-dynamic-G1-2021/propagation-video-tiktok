@@ -1,4 +1,5 @@
-import tkinter_file3 as tkinter_file
+import tkinter_file4 as tkinter_file
+import musique
 import pygame
 import random
 
@@ -22,6 +23,8 @@ def animation_go():
     #----------------------------
     resolution = (1400, 700)
     distance = 5
+    liste_freq_abonnes = [i for i in range(100)]
+    liste_gens_supp = [i for i in range(50000)]
 
     #----------------------------
     # Générer une fenêtre
@@ -32,6 +35,8 @@ def animation_go():
     #========================================================
     #       C L A S S E S
     #========================================================
+
+    # Lorsque l'animation commence...
 
     class Animation :
         def __init__(self):
@@ -44,37 +49,18 @@ def animation_go():
             self.commande = Commande()
             
             self.mission = False
+            self.abonnes = 1
             self.nombre_de_gens = 150
             self.objectif_vues = 500
             self.objectif_likes = 200
             self.objectif_commentaires = 100
             self.objectif_partages = 25
-            self.objectifs()
 
         def afficher_pygame(self):
             self.afficher_animation = True
 
         def start(self):
             self.is_playing = True
-
-        def objectifs(self):
-            
-            gens = tkinter_file.nombre_utilisateurs.parametre
-            view = tkinter_file.objectif_vues.parametre
-            likes = tkinter_file.objectif_likes.parametre
-            comments = tkinter_file.objectif_commentaires.parametre
-            shares = tkinter_file.objectif_partages.parametre
-
-            if len(gens) > 0 and ord(gens) >= 49 and ord(gens) <= 57 :
-                self.nombre_de_gens = int(view)
-            if len(view) > 0 and ord(view) >= 49 and ord(view) <= 57 :
-                self.objectif_vues = int(view)
-            if len(likes) > 0 and ord(likes) >= 49 and ord(likes) <= 57 :
-                self.objectif_likes = int(likes)
-            if len(comments) > 0 and ord(comments) >= 49 and ord(comments) <= 57 :
-                self.objectif_commentaires = int(comments)
-            if len(shares) > 0 and ord(shares) >= 49 and ord(shares) <= 57 :
-                self.objectif_partages = int(shares)
         
         def update(self):
             screen.blit(animation.tiktok.image, animation.tiktok.rect)
@@ -82,22 +68,27 @@ def animation_go():
                 animation.tiktok.move_right()
             elif animation.pressed.get(pygame.K_LEFT) and animation.tiktok.rect.x > 0 :
                 animation.tiktok.move_left()
-            elif animation.pressed.get(pygame.K_DOWN) and animation.tiktok.rect.y + animation.tiktok.rect.height < screen.get_height() :
+            if animation.pressed.get(pygame.K_DOWN) and animation.tiktok.rect.y + animation.tiktok.rect.height < screen.get_height() :
                 animation.tiktok.move_down()
             elif animation.pressed.get(pygame.K_UP) and animation.tiktok.rect.y > 0 :
                 animation.tiktok.move_up()
+
+            liste_collisions = collide_human(liste_positions_1, liste_positions_2)
+            
             i = 0
             while i < self.nombre_de_gens :
                 commande.mission()
                 if pygame.Rect.collidepoint(liste_collisions[i], (animation.tiktok.rect.x, animation.tiktok.rect.y)) and not self.mission:
-                    print("Collision numéro", i)
                     animation.statistique.nombre_de_vues()
-                    print("Nombre de vues actuel :", animation.statistique.vues)
+                if event.type == pygame.MOUSEMOTION :
+                    if pygame.Rect.collidepoint(liste_collisions[i], event.pos) :
+                        texte.humain = "Human selected : " + str(i)
+                        redige.humain = police.arial_20.render(texte.humain, True, couleur.white)
                 i += 1
 
     #-------------------------------------------------------------------------
 
-    # Les fonctions supplémentaires (double move) permettent d'aller en diagonale, mais je n'ai pas réussi pour l'instant
+    # Le mouvement de Tiktok
 
     class TikTok :
         def __init__(self):
@@ -120,47 +111,53 @@ def animation_go():
         def move_up(self):
             self.rect.y -= self.vitesse
 
-        """
-        def move_up_left(self):
-            self.rect.x -= self.vitesse
-            self.rect.y -= self.vitesse
+    #-------------------------------------------------------------------------
 
-        def move_up_right(self):
-            self.rect.x += self.vitesse
-            self.rect.y -= self.vitesse
-
-        def move_down_left(self):
-            self.rect.x -= self.vitesse
-            self.rect.y += self.vitesse
-
-        def move_down_right(self):
-            self.rect.x += self.vitesse
-            self.rect.y += self.vitesse
-        """
+    class Id_User_Video :
+        def __init__(self):
+            super().__init__()
+            self.liste_videos = musique.musiques()
+            self.video = random.choice(self.liste_videos)
 
     #-------------------------------------------------------------------------
 
-    # Cette classe permet d'afficher les données chiffrées en haut à gauche de l'écran
+    # Les textes affichés en haut à gauche
 
     class Statistique :
         def __init__(self):
             super().__init__()
+            self.abonnes = 2
             self.vues = 0
             self.likes = 0
             self.commentaires = 0
             self.partages = 0
 
+        def nombre_abonnes(self):
+            if random.choice(liste_freq_abonnes) == 1 :
+                self.abonnes += random.randrange(self.abonnes)
+                texte.abonnes = "Number of followers : " + str(self.abonnes)
+                redige.abonnes = police.arial_20.render(texte.abonnes, True, couleur.white)
+
         def nombre_de_vues(self):
             self.vues += 1
+            texte.vues = "Number of views : " + str(self.vues)
+            redige.vues = police.arial_20.render(texte.vues, True, couleur.white)
+            self.nombre_abonnes()
 
         def nombre_de_likes(self):
             self.likes += 1
+            texte.vues = "Number of likes : " + str(self.likes)
+            redige.vues = police.arial_20.render(texte.vues, True, couleur.white)
 
         def nombre_de_commentaires(self):
             self.commentaires += 1
+            texte.vues = "Number of comments : " + str(self.commentaires)
+            redige.vues = police.arial_20.render(texte.vues, True, couleur.white)
 
         def nombre_de_partages(self):
             self.partages += 1
+            texte.vues = "Number of shares : " + str(self.partages)
+            redige.vues = police.arial_20.render(texte.vues, True, couleur.white)
 
     #-------------------------------------------------------------------------
 
@@ -169,13 +166,11 @@ def animation_go():
     class Commande :
         def __init__(self):
             super().__init__()
-            self.launched = False
-
-        def lancer(self):
-            self.launched = True
 
         def mission(self):
             if animation.statistique.vues >= animation.objectif_vues and not animation.mission :
+                texte.mission_vues = "Mission accomplie ! Le nombre de vues est atteint !"
+                redige.mission_vues = police.arial_20.render(texte.mission_vues, True, couleur.white)
                 print("Mission accomplie ! Le nombre de vues est atteint !")
                 animation.mission = True
             elif animation.statistique.likes >= animation.objectif_likes and not animation.mission :
@@ -217,18 +212,81 @@ def animation_go():
 
             self.instruction_1 = "Press SpaceBar to Start"
             self.instruction_2 = "Use Right, Left, Up and Down Arrows to Move"
-            self.instruction_3 = "If you touch a human, the console prints a collide and a number"
+            self.instruction_3 = "If you touch a human, the output prints a collide and a number"
             self.instruction_4 = "And the number of views increases"
             self.instruction_5 = "Your mission is to reach the goal (only of views, at least for now)"
+            self.instruction_6 = "Put your mouse on one of the human to see his id"
 
-            self.chronometre = 'O'.rjust(3)
+            #_____________________________
+
+            current_followers = tkinter_file.nombre_abonnes.parametre
+            current_people = tkinter_file.nombre_utilisateurs.parametre
+            views_goal = tkinter_file.objectif_vues.parametre
+            likes_goal = tkinter_file.objectif_likes.parametre
+            comments_goal = tkinter_file.objectif_commentaires.parametre
+            shares_goal = tkinter_file.objectif_partages.parametre
+
+            #_____________________________
+
+            try :
+                self.abonnes = "Number of followers : " + str(current_followers)
+                animation.abonnes = int(current_followers)
+            except :
+                self.abonnes = "Number of followers : " + str(statistique.abonnes)
+
+            try :
+                self.nombre_de_gens = "Number of people here : " + str(current_people)
+            except :
+                self.nombre_de_gens = "Number of people here : " + str(animation.nombre_de_gens)
+
+            self.duree = "Time limit : "
+            self.vues = "Number of views : " + str(statistique.vues)
+            self.likes = "Number of likes : " + str(statistique.likes)
+            self.commentaires = "Number of comments : " + str(statistique.commentaires)
+            self.partages = "Number of shares : " + str(statistique.partages)
+
+            #_____________________________
+
+            try :
+                self.objectif_vues = "Views goal : " + str(views_goal)
+                animation.objectif_vues = int(views_goal)
+            except :
+                self.objectif_vues = "Views goal : " + str(animation.objectif_vues)
+
+            try :
+                self.objectif_likes = "Likes goal : " + str(likes_goal)
+                animation.objectif_likes = int(likes_goal)
+            except :
+                self.objectif_likes = "Likes goal : " + str(animation.objectif_likes)
+
+            try :
+                self.objectif_commentaires = "Comments goal : " + str(comments_goal)
+                animation.objectif_commentaires = int(comments_goal)
+            except :
+                self.objectif_commentaires = "Comments goal : " + str(animation.objectif_commentaires)
+
+            try :
+                self.objectif_partages = "Shares goal : " + str(shares_goal)
+                animation.objectif_partages = int(shares_goal)
+            except :
+                self.objectif_partages = "Shares goal : " + str(animation.objectif_partages)
+
+            #_____________________________
+
+            self.mission_vues = ""
+            self.theme_video = "Theme of the Video : "
+            self.musique_video = "Music Used : "
+            self.hashtag_video = "Hashtag : "
+            self.humain = "Human selected :"
+
 
     #-------------------------------------------------------------------------
 
     class Police :
         def __init__(self):
             super().__init__()
-            self.arial = pygame.font.SysFont('arial', 30)
+            self.arial_30 = pygame.font.SysFont('arial', 30)
+            self.arial_20 = pygame.font.SysFont('arial', 20)
             self.cookie_regular = pygame.font.Font('Polices/Cookie-Regular.ttf', 60)
 
     #-------------------------------------------------------------------------
@@ -236,18 +294,45 @@ def animation_go():
     class Redige :
         def __init__(self):
             super().__init__()
-            self.chargement_1 = police.arial.render(texte.chargement_1, False, couleur.white)
-            self.chargement_2 = police.arial.render(texte.chargement_2, False, couleur.white)
+            self.chargement_1 = police.arial_30.render(texte.chargement_1, False, couleur.white)
+            self.chargement_2 = police.arial_30.render(texte.chargement_2, False, couleur.white)
 
             self.titre = police.cookie_regular.render(texte.titre, True, couleur.white)
             self.titre_shadow = police.cookie_regular.render(texte.titre, True, couleur.black)
 
-            self.instruction_1 = police.arial.render(texte.instruction_1, False, couleur.white)
-            self.instruction_2 = police.arial.render(texte.instruction_2, False, couleur.white)
-            self.instruction_3 = police.arial.render(texte.instruction_3, False, couleur.white)
-            self.instruction_4 = police.arial.render(texte.instruction_4, False, couleur.white)
-            self.instruction_5 = police.arial.render(texte.instruction_5, False, couleur.white)
-        
+            self.instruction_1 = police.arial_30.render(texte.instruction_1, False, couleur.white)
+            self.instruction_2 = police.arial_30.render(texte.instruction_2, False, couleur.white)
+            self.instruction_3 = police.arial_30.render(texte.instruction_3, False, couleur.white)
+            self.instruction_4 = police.arial_30.render(texte.instruction_4, False, couleur.white)
+            self.instruction_5 = police.arial_30.render(texte.instruction_5, False, couleur.white)
+            self.instruction_6 = police.arial_30.render(texte.instruction_6, False, couleur.white)
+
+            #_____________________________
+
+            self.abonnes = police.arial_20.render(texte.abonnes, True, couleur.white)
+            self.nombre_de_gens = police.arial_20.render(texte.nombre_de_gens, True, couleur.white)
+            self.duree = police.arial_20.render(texte.duree, True, couleur.white)
+
+            self.vues = police.arial_20.render(texte.vues, True, couleur.white)
+            self.likes = police.arial_20.render(texte.likes, True, couleur.white)
+            self.commentaires = police.arial_20.render(texte.commentaires, True, couleur.white)
+            self.partages = police.arial_20.render(texte.partages, True, couleur.white)
+
+            self.objectif_vues = police.arial_20.render(texte.objectif_vues, True, couleur.white)
+            self.objectif_likes = police.arial_20.render(texte.objectif_likes, True, couleur.white)
+            self.objectif_commentaires = police.arial_20.render(texte.objectif_commentaires, True, couleur.white)
+            self.objectif_partages = police.arial_20.render(texte.objectif_partages, True, couleur.white)
+
+            #_____________________________
+
+            self.mission_vues = police.arial_20.render(texte.mission_vues, True, couleur.white)
+            self.theme_video = police.arial_20.render(texte.theme_video, True, couleur.white)
+            self.musique_video = police.arial_20.render(texte.musique_video, True, couleur.white)
+            self.hashtag_video = police.arial_20.render(texte.hashtag_video, True, couleur.white)
+            self.humain = police.arial_20.render(texte.humain, True, couleur.white)
+
+
+
     #========================================================
     #       C H A R G E R   L E S   C L A S S E S
     #========================================================
@@ -305,11 +390,23 @@ def animation_go():
         liste_pos_aleatoires = []
         population = 0
 
-        while population < nombre :
+        while population <= nombre :
             liste_pos_aleatoires.append(random.choice(liste_positions))
             population += 1
         
         return liste_pos_aleatoires
+
+    #----------------------------
+    # Générer des rectangles pour chaque humain
+    #----------------------------
+
+    def collide_human(liste_1, liste_2):
+        liste_collide = []
+        i = 0
+        while i < animation.nombre_de_gens :
+            liste_collide.append(pygame.Rect(liste_1[i], liste_2[i], 20, 20))
+            i += 1
+        return liste_collide
 
     #----------------------------
     # Stocker les positions
@@ -317,20 +414,7 @@ def animation_go():
 
     liste_positions_1 = liste_positions_aleatoires(animation.nombre_de_gens, distance)
     liste_positions_2 = liste_positions_aleatoires(animation.nombre_de_gens, distance)
-
-    #----------------------------
-    # Générer des rectangles pour chaque humain
-    #----------------------------
-
-    def collide_human():
-        liste_collide = []
-        i = 0
-        while i < animation.nombre_de_gens :
-            liste_collide.append(pygame.Rect(liste_positions_1[i], liste_positions_2[i], 20, 20))
-            i += 1
-        return liste_collide
-
-    liste_collisions = collide_human()
+    liste_collisions = collide_human(liste_positions_1, liste_positions_2)
 
     #========================================================
     #       A F F I C H A G E
@@ -357,26 +441,69 @@ def animation_go():
         #----------------------------
         # Arrière-plan
         #----------------------------
-        screen.blit(image.background, (0, -20))
 
+        screen.blit(image.background, (0, -20))
+        
         #----------------------------
-        # Textes
+        # Textes Description
         #----------------------------
-        screen.blit(redige.titre_shadow, [160, 105])
-        screen.blit(redige.titre, [165, 100])
-        screen.blit(redige.instruction_1, [200, 200])
-        screen.blit(redige.instruction_2, [200, 250])
-        screen.blit(redige.instruction_3, [200, 300])
-        screen.blit(redige.instruction_4, [200, 350])
-        screen.blit(redige.instruction_5, [200, 400])
+
+        screen.blit(redige.titre_shadow, [220, 155])
+        screen.blit(redige.titre, [225, 150])
+        screen.blit(redige.instruction_1, [260, 250])
+        screen.blit(redige.instruction_2, [260, 300])
+        screen.blit(redige.instruction_3, [260, 350])
+        screen.blit(redige.instruction_4, [260, 400])
+        screen.blit(redige.instruction_5, [260, 450])
+        screen.blit(redige.instruction_6, [260, 500])
 
         #----------------------------
         # Images
         #----------------------------
+
         i = 0
         while i < animation.nombre_de_gens :
             screen.blit(image.personne, [liste_positions_1[i], liste_positions_2[i]])
             i += 1
+
+            if random.choice(liste_gens_supp) == 1 and not animation.mission :
+                animation.nombre_de_gens += 1
+                liste_positions_1 += liste_positions_aleatoires(1, distance)
+                liste_positions_2 += liste_positions_aleatoires(1, distance)
+
+        #----------------------------
+        # Textes Statistique
+        #----------------------------
+
+        # un chrono en secondes ici ? [30, 10]
+        # un chrono en semaines ici ? [30, 30]
+
+        screen.blit(redige.duree, [30, 80]) # en secondes
+        screen.blit(redige.abonnes, [30, 110])
+
+        screen.blit(redige.vues, [30, 140])
+        screen.blit(redige.objectif_vues, [30, 160])
+
+        screen.blit(redige.likes, [30, 190])
+        screen.blit(redige.objectif_likes, [30, 210])
+
+        screen.blit(redige.commentaires, [30, 240])
+        screen.blit(redige.objectif_commentaires, [30, 260])
+
+        screen.blit(redige.partages, [30, 290])
+        screen.blit(redige.objectif_partages, [30, 310])
+
+        #----------------------------
+        # Textes Informations
+        #----------------------------
+
+        screen.blit(redige.mission_vues, [450, 20])
+
+        screen.blit(redige.theme_video, [30, 570])
+        screen.blit(redige.musique_video, [30, 590])
+        screen.blit(redige.hashtag_video, [30, 610])
+
+        screen.blit(redige.humain, [30, 650])
 
         #----------------------------
         # Evènements
@@ -511,16 +638,17 @@ def animation_go():
 
     # import time
 
+    texte.chronometre = 'O'.rjust(3) (dans la class Texte)
+
     # Les variables du chronomètre :
     - 3, c'est juste l'endroit par rapport à x, rjust est facultatif
-    - Je sais pas ce qu'est USEREVENT :')
     - 1000 c'est un intervalle, le compteur s'active tous les 1000 millisecondes
 
     clock = pygame.time.Clock()
     counter = 0
     pygame.time.set_timer(pygame.USEREVENT, 1000)
 
-    # Celui-là, faut placer vers la fin de la boucle launched :
+    # Celui-là, il faut placer vers la fin de la boucle launched :
 
     screen.blit(pygame.font.SysFont('Consolas', 30).render(redige.chronometre, True, couleur.white), [32, 48])
 
