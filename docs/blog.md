@@ -162,3 +162,40 @@ on a beaucoup avancé cette semaine sur `pygame` et `tkinter` par rapport à la 
 - Ajouter un graphique avec `tkinter` (pas encore sûr).
 
 **Manissa Bouda**
+
+### semaine 7/8 (du 17/04 au 03/05)
+
+Ces deux dernières semaines nous avons effectuer quelques modifications sur les bases utilisateurs et vidéo, nous nous sommes en grande partie consacré à la finalisation de l’animation et à la préparation de l’oral .
+
+Nous avons modifié le format de `base_utilisateur` et `base_video` afin de mieux les adapter à la mise en place de l’animation.
+
+`base_utilisateur` crée un dictionnaire de liste de type :
+
+•	identifiant.
+•	liste musiques favoris.
+•	liste hashtags favoris.
+•	liste thèmes favoris
+
+`base_video` se présente sous la forme d’une liste de liste:
+
+•	identifiant 
+•	nombre de like
+•	nombre de commentaire
+•	nombre de partage
+•	thème de la video 
+•	musique de la video 
+•	hashtag de la video 
+
+#### En ce qui concerne l’animation :
+
+Nous avons automatisé le déplacement de la vidéo Tiktok vers les utilisateurs même s’il reste possible de le faire manuellement.
+Les caractéristiques de chaque utilisateur qui  «visionne  » la vidéo ainsi que les caractéristiques de la vidéo (thème, musique, hashtag ) sont désormais affiché à gauche de l’écran.
+Un système de visualisation temporelle à également été mis en place afin de savoir en combien de temps une vidéo a atteint un de ces objectifs de like , commentaire , partage entré en paramètre.
+Un temps d’arrêt (en seconde) est également entrée en paramètres au cas ou la video n’obtiendrai jamais un de ces objectifs. 
+
+#### En ce qui concerne la présentation oral :
+
+Nous nous sommes répartir équitablement les différentes parties de la présentation afin de traiter les aspects les plus importants de notre modèle.
+Nous avons également réalisé le diaporama ainsi qu’une video de présentation des principaux affichages et fonctionnalités de l’animation finale.
+
+**Adan Zerrad**
