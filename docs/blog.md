@@ -17,6 +17,8 @@ Nous avons présenté notre projet pendant la séance de mardi. Nos rôles dans 
 
 Nous avons ensuite défini plus explicitement notre approche au projet : on allait faire un système de recommandation, puis rajouter du code pour modéliser la propagation de notre vidéo.
 
+- Sebastian Szebrat
+
 ### Semaine 2 (du 15/03)
 
 Débat sur la pertinence de l'approche choisi dans la dernière séance : 
@@ -30,6 +32,8 @@ Ils présentaient tous le même défi : ils servent tous à analyser des ensembl
 C'est alors qu'on a décidé de nous réorienter vers un pseudo système de recommandation.
 
 Pour la prochaine séance, nous nous sommes laissés la tâche de finir notre débat et d'avoir une idée très claire des étapes de l'élaboration de notre pseudo système.
+
+- Sebastian Szebrat
 
 ### Semaine 3 (du 22/03)
 
@@ -77,6 +81,7 @@ Au niveau du code, nous avons terminé d’écrire la fonction `base_videos`. No
 
 La difficulté était au niveau de l’importation du module `pygame`, car bien qu’il soit déjà installé, le compilateur ne reconnaît pas le module `pygame`.
 
+- Salwa Mujahid
 
 ### Semaine 5 (du 05/04)
 
