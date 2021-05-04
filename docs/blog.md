@@ -2,6 +2,7 @@
 layout: page
 title: "Blog"
 permalink: /blog/
+theme: jekyll-theme-minimal
 ---
 
 
@@ -19,7 +20,7 @@ Nous avons présenté notre projet pendant la séance de mardi. Nos rôles dans 
 
 Nous avons ensuite défini plus explicitement notre approche au projet : on allait faire un système de recommandation, puis rajouter du code pour modéliser la propagation de notre vidéo.
 
-- Sebastian Szebrat
+**Sebastian Szebrat**
 
 ### Semaine 2 (du 15/03)
 
@@ -35,7 +36,7 @@ C'est alors qu'on a décidé de nous réorienter vers un pseudo système de reco
 
 Pour la prochaine séance, nous nous sommes laissés la tâche de finir notre débat et d'avoir une idée très claire des étapes de l'élaboration de notre pseudo système.
 
-- Sebastian Szebrat
+**Sebastian Szebrat**
 
 ### Semaine 3 (du 22/03)
 
@@ -81,7 +82,7 @@ Au niveau du code, nous avons terminé d’écrire la fonction `base_videos`. No
 
 La difficulté était au niveau de l’importation du module `pygame`, car bien qu’il soit déjà installé, le compilateur ne reconnaît pas le module `pygame`.
 
-- Salwa Mujahid
+**Salwa Mujahid**
 
 ### Semaine 5 (du 05/04)
 
@@ -159,3 +160,5 @@ on a beaucoup avancé cette semaine sur `pygame` et `tkinter` par rapport à la 
 - Ajouter des commandes, des actions lorsqu’on valide les paramètres dans la fenêtre `tkinter`.
 - Distancer les personnes pour avoir un rendu plus réaliste .
 - Ajouter un graphique avec `tkinter` (pas encore sûr).
+
+**Manissa Bouda**
