@@ -218,6 +218,6 @@ Nous avons également réalisé le diaporama ainsi qu’une video de présentati
 
 ## Compte-rendu
 
-(Notre compte-rendu en format Jupyter Notebook)[https://nbviewer.jupyter.org/github/ARE-dynamic-G1-2021/propagation-video-tiktok/blob/main/propagation-video-tiktok.ipynb]
+[Notre compte-rendu en format Jupyter Notebook](https://nbviewer.jupyter.org/github/ARE-dynamic-G1-2021/propagation-video-tiktok/blob/main/propagation-video-tiktok.ipynb)
 
 Il est aussi présent sur notre répositoire Github, vous trouverez le lien pour ceci dans le menu à gauche.
