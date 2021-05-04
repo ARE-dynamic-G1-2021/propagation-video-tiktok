@@ -215,3 +215,9 @@ Nous nous sommes répartir équitablement les différentes parties de la présen
 Nous avons également réalisé le diaporama ainsi qu’une video de présentation des principaux affichages et fonctionnalités de l’animation finale.
 
 **Adan Zerrad**
+
+## Compte-rendu
+
+(Notre compte-rendu en format Jupyter Notebook)[https://nbviewer.jupyter.org/github/ARE-dynamic-G1-2021/propagation-video-tiktok/blob/main/propagation-video-tiktok.ipynb]
+
+Il est aussi présent sur notre répositoire Github, vous trouverez le lien pour ceci dans le menu à gauche.
