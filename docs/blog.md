@@ -1,6 +1,8 @@
+---
 layout: page
 title: "Blog"
 permalink: /blog/
+---
 
 
 ## Blog
@@ -36,8 +38,6 @@ Pour la prochaine séance, nous nous sommes laissés la tâche de finir notre d�
 - Sebastian Szebrat
 
 ### Semaine 3 (du 22/03)
-
-Grâce à l'article de TikTok sur le fonctionnement de son algorithme, nous avons pu discerner deux approches vers les systèmes de recommandation : le "content-based filtering" et le "collaborative filtering".
 
 Vu qu'on veut s'axer sur le point de vue de la propagation d'une vidéo vers des utilisateurs (content-based) et non pas des utilisateurs vers la vidéo (collaborative filtering), on s'est décidé de faire une simulation d'un système de recommandation basé sur le "content-based filtering". 
 
