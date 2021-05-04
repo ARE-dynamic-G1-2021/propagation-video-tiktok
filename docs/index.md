@@ -10,10 +10,14 @@ With the rapid spread of social media, particularly during the COVID-19 pandemic
 
 This is why we are attempting to create a model of TikTok that would allow us to observe how a video spreads towards the platform's users, the end goal being to illustrate the spread of an individual video, and possibly the parameters that led to its success.
 
-## Notre groupe
+## Groupe
 
-Notre groupeManissa BOUDA
-Sebastian SZEBRAT
+- Salwa MUJAHID
+- Manissa BOUDA
+- Adan ZERRAD
+- Sebastian SZEBRAT
+
+Nous sommes des étudiants en première année de licence à la Faculté de Sciences et d'Ingénierie de Sorbonne Université. 
 
 ## Blog
 
