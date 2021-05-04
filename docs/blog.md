@@ -1,3 +1,8 @@
+layout: page
+title: "Blog"
+permalink: /blog/
+
+
 ## Blog
 
 ### Semaine 1 (du 09/03)
